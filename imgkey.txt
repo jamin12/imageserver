@@ -1,0 +1,4 @@
+imgserver id
+AKIATZML2QLTR2F5SXAO
+imgserver secret key
+yIFfpXo6PbBz8PFwJlT1mS/gIbDfU2BwpeesWBgJ
