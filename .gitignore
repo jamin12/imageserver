@@ -107,4 +107,4 @@ dist
 # sequelize config file
 **/database.json
 
-./public/images
+**/public/images

@@ -42,8 +42,9 @@ const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, `public/images`) // cb 콜백함수를 통해 전송된 파일 저장 디렉토리 설정
   },
+  // TODO: 파일 이름 랜덤으로 저장
   filename: (req, file, cb) => {
-    cb(null, file.originalname) // cb 콜백함수를 통해 전송된 파일 이름 설정
+    cb(null, `${file.filename}.${file.originalname.split('.')[1]}`) // cb 콜백함수를 통해 전송된 파일 이름 설정
   }
 })
 
