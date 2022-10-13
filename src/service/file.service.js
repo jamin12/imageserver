@@ -22,16 +22,18 @@ class FileService {
   async createFile(fileInfo) {
     fileInfo.fid = uuid();
     fileInfo.ext = `.${fileInfo.originalname.split('.')[1]}`
-    await files.create(
+    const createdFile = await files.create(
       fileInfo
     )
-
-    return await this.findLastOne('created_at');
+    return {
+      fid: createdFile.fid,
+      created_at: createdFile.created_at
+    };
   }
 
   async getImgFile(fid) {
     return await files.findOne({
-      attributes: ["originalname"],
+      attributes: ["filename"],
       where: {
         fid: fid
       }
