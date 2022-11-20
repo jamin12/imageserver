@@ -14,8 +14,8 @@ const fileservice = new fileService();
 const output = {
 	getFile: catchAsync(async (req, res) => {
 		const fileName = await fileservice.getImgFile(req.params.fid);
-		console.log(fileName.filename);
-		res.redirect(`http://127.0.0.1:3551/images/${fileName.filename}`);
+		res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+		res.redirect(`http://39.120.8.109:3551/images/${fileName.filename}`);
 	}),
 };
 

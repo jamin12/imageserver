@@ -1,11 +1,8 @@
-const appRoot = require("app-root-path");
 const { v4: uuid } = require("uuid");
 const multer = require("multer");
 const validator = require("validator");
-const config = require("../config/config");
 const httpStatus = require("http-status");
 const ApiError = require("../utils/Error/customError");
-const logger = require("../config/logger");
 
 const limits = {
 	filedNameSize: 200, // default 100bytes
@@ -30,7 +27,6 @@ const limits = {
 const fileFilter = (req, file, next) => {
 	const typeArray = file.mimetype.split("/");
 	const fileType = typeArray[1];
-
 	if (validator.contains("jpg,jpeg,png", fileType)) {
 		next(null, true);
 	} else {
