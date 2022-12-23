@@ -22,10 +22,10 @@ dotenv.config();
 const routes = require("./src/routes");
 
 // Access-Control-Allow-Credentials에러 해결
-app.use((req, res, next) => {
-	res.header("Access-Control-Allow-Credentials", true);
-	next();
-});
+// app.use((req, res, next) => {
+// 	res.header("Access-Control-Allow-Credentials", true);
+// 	next();
+// });
 
 // set security HTTP headers
 // app.use(helmet({ crossOriginEmbedderPolicy: false, contentSecurityPolicy: false }));
@@ -53,7 +53,7 @@ app.use(xss());
 
 app.use(
 	cors({
-		origin: true,
+		origin: "*",
 		credential: true, // 사용자 인증이 필요한 리소스(쿠키 ..등) 접근
 		methods: "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS",
 		preflightContinue: false,
